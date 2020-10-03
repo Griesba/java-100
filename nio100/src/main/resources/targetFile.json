@@ -1,0 +1,7 @@
+{"name":"Offering","isin":"2314"}
+
+InputStream inputStream = new ByteArrayInputStream(new Gson().toJson(new Contract("Offering", "2314")).getBytes());
+File newFile = new File("src/main/resources/targetFile2.json");
+//newFile.mkdirs();
+Files.copy(inputStream, newFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
