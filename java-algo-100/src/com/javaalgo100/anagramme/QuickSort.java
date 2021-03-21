@@ -1,8 +1,9 @@
 package com.javaalgo100.anagramme;
 
-public class QuickSort {
 
-    public void sort(char [] A, int lo, int hi) {
+public class QuickSort<T extends Comparable<T>> {
+
+    public void sort(T [] A, int lo, int hi) {
         if (lo < hi) {
             int p = partition(A, lo, hi);
             sort(A, lo, p - 1);
@@ -10,11 +11,11 @@ public class QuickSort {
         }
     }
 
-    private int partition(char [] A, int lo, int hi) {
-        char pivot = A[hi];
+    private int partition(T [] A, int lo, int hi) {
+        T pivot = A[hi];
         int i = lo;
         for (int j = i; j < hi; j++) {
-            if (A[j] < pivot) {
+            if (A[j].compareTo(pivot) < 0) {
                 swapArray(A, i, j);
                 i++;
             }
@@ -23,8 +24,8 @@ public class QuickSort {
         return i;
     }
 
-    private void swapArray(char [] A, int lo, int hi) {
-        char temp = A[lo];
+    private void swapArray(T [] A, int lo, int hi) {
+        T temp = A[lo];
         A[lo] = A[hi];
         A[hi] = temp;
     }

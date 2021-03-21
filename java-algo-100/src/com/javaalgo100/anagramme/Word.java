@@ -41,11 +41,20 @@ public class Word {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (int i = 0; i < anagrams.size(); i++) {
-            stringBuilder.append(anagrams.get(i));
-            stringBuilder.append(" ");
+        if (anagrams.isEmpty()) {return word + ": []";}
+
+        stringBuilder.append(anagrams.get(0));
+
+        if (anagrams.size() > 1) {
+            for (int i = 1; i < anagrams.size() - 1; i++) {
+                stringBuilder.append(", ");
+                stringBuilder.append(anagrams.get(i));
+            }
+            stringBuilder.append(", ");
+            stringBuilder.append(anagrams.get(anagrams.size() - 1));
         }
 
-        return word + " " +  stringBuilder.toString();
+
+        return word + "[" +  stringBuilder.toString() + "]";
     }
 }
