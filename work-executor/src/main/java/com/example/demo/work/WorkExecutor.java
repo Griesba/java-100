@@ -1,9 +1,14 @@
 package com.example.demo.work;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Arrays;
 import java.util.Collection;
 
 public interface WorkExecutor {
+
+    Logger LOGGER = LoggerFactory.getLogger(WorkExecutor.class);
 
     String DEFAULT_WORK = "default";
 

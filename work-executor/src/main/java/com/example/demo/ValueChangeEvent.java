@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class ValueChangeEvent <V extends Serializable> implements Event {
     private V newValue;
-    private V orldValue;
+    private V oldValue;
 
     public ValueChangeEvent(V newValue, V oldValue) {
         this.newValue = newValue;
-        this.orldValue = oldValue;
+        this.oldValue = oldValue;
     }
 
     public V getNewValue() {
@@ -19,11 +19,11 @@ public class ValueChangeEvent <V extends Serializable> implements Event {
         this.newValue = newValue;
     }
 
-    public V getOrldValue() {
-        return orldValue;
+    public V getOldValue() {
+        return oldValue;
     }
 
-    public void setOrldValue(V orldValue) {
-        this.orldValue = orldValue;
+    public void setOldValue(V oldValue) {
+        this.oldValue = oldValue;
     }
 }

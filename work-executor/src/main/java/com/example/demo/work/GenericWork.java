@@ -51,6 +51,14 @@ public abstract class GenericWork implements Work {
         this.workItem = workItem;
     }
 
+    public ThreadContextManager getThreadContextManager() {
+        return threadContextManager;
+    }
+
+    public void setThreadContextManager(ThreadContextManager threadContextManager) {
+        this.threadContextManager = threadContextManager;
+    }
+
     @Override
     public void run() {
         String uuid = UUID.randomUUID().toString();
