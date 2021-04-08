@@ -3,6 +3,7 @@ package com.example.demo.impl;
 import com.example.demo.utils.ThreadContextManager;
 import com.example.demo.work.GenericWork;
 import com.example.demo.work.WorkExecutor;
+import com.example.demo.work.WorkExecutorException;
 
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
@@ -27,7 +28,7 @@ public class DefaultWorkExecutor implements WorkExecutor {
     }
 
     @Override
-    public void executeWork(GenericWork genericWork, String jndiName) throws Exception {
+    public void executeWork(GenericWork genericWork, String jndiName) throws WorkExecutorException {
         LOGGER.debug("Send work using thread {} (thread pool '{}')", genericWork.toString(), jndiName);
 
         ExecutorService executorService = executors.get(jndiName);

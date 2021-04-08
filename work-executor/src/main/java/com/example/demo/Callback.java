@@ -1,6 +1,6 @@
 package com.example.demo;
 
 public interface Callback <E extends Event> {
-    void onEvent(Event event);
+    void onEvent(E event);
     void onTimeout();
 }

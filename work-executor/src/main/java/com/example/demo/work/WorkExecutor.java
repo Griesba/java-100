@@ -12,11 +12,11 @@ public interface WorkExecutor {
 
     String DEFAULT_WORK = "default";
 
-    default void executorWork(GenericWork genericWork) throws Exception {
+    default void executeWork(GenericWork genericWork) throws Exception {
         executeWork(genericWork, DEFAULT_WORK);
     }
 
-    void executeWork(GenericWork genericWork, String jndiName) throws Exception;
+    void executeWork(GenericWork genericWork, String jndiName) throws WorkExecutorException;
 
     default boolean waitFor(long waitTimeInMillis, GenericWork ... works) throws Exception {
         return waitFor(waitTimeInMillis, DEFAULT_WORK, works);
