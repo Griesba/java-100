@@ -14,7 +14,7 @@ public class ObserverWork <V extends Serializable> extends GenericWork {
     private final V previousValue;
     private final long timeout;
 
-    public ObserverWork(String name, ObservableValue<V> observed, Callback<ValueChangeEvent<V>> callback, V previousValue, long timeout) {
+    ObserverWork(String name, ObservableValue<V> observed, Callback<ValueChangeEvent<V>> callback, V previousValue, long timeout) {
         super(name);
         this.observed = observed;
         this.callback = callback;
@@ -40,7 +40,7 @@ public class ObserverWork <V extends Serializable> extends GenericWork {
         if (Objects.equals(previousValue, observed.get())){
             callback.onTimeout();
         } else {
-            callback.onEvent(new ValueChangeEvent<>(previousValue, observed.get()));
+            callback.onEvent(new ValueChangeEvent<>(observed.get(), previousValue));
         }
     }
 
