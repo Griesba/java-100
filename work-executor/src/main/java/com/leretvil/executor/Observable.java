@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.griesba.executor;
 
 import java.io.Serializable;
 

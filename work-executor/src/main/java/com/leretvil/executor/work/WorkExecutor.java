@@ -1,4 +1,4 @@
-package com.example.demo.work;
+package com.griesba.executor.work;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

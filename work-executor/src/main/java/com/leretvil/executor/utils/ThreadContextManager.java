@@ -1,4 +1,4 @@
-package com.example.demo.utils;
+package com.griesba.executor.utils;
 
 public interface ThreadContextManager {
     void startFunction();

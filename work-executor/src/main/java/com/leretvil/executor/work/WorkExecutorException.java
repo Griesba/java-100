@@ -1,4 +1,4 @@
-package com.example.demo.work;
+package com.griesba.executor.work;
 
 public class WorkExecutorException extends Exception {
 

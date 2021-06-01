@@ -1,11 +1,11 @@
-package com.example.demo.impl;
+package com.griesba.executor.impl;
 
-import com.example.demo.Callback;
-import com.example.demo.Observable;
-import com.example.demo.ObservableException;
-import com.example.demo.ValueChangeEvent;
-import com.example.demo.work.WorkExecutor;
-import com.example.demo.work.WorkExecutorException;
+import com.griesba.executor.Callback;
+import com.griesba.executor.ObservableException;
+import com.griesba.executor.work.WorkExecutor;
+import com.griesba.executor.work.WorkExecutorException;
+import com.griesba.executor.Observable;
+import com.griesba.executor.ValueChangeEvent;
 
 import java.io.Serializable;
 

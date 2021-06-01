@@ -1,9 +1,9 @@
-package com.example.demo.impl;
+package com.griesba.executor.impl;
 
-import com.example.demo.utils.ThreadContextManager;
-import com.example.demo.work.GenericWork;
-import com.example.demo.work.WorkExecutor;
-import com.example.demo.work.WorkExecutorException;
+import com.griesba.executor.utils.ThreadContextManager;
+import com.griesba.executor.work.GenericWork;
+import com.griesba.executor.work.WorkExecutor;
+import com.griesba.executor.work.WorkExecutorException;
 
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;

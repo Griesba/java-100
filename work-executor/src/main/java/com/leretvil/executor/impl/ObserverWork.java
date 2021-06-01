@@ -1,8 +1,8 @@
-package com.example.demo.impl;
+package com.griesba.executor.impl;
 
-import com.example.demo.Callback;
-import com.example.demo.ValueChangeEvent;
-import com.example.demo.work.GenericWork;
+import com.griesba.executor.Callback;
+import com.griesba.executor.work.GenericWork;
+import com.griesba.executor.ValueChangeEvent;
 
 import java.io.Serializable;
 import java.time.Instant;

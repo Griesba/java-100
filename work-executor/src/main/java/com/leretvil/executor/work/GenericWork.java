@@ -1,6 +1,6 @@
-package com.example.demo.work;
+package com.griesba.executor.work;
 
-import com.example.demo.utils.ThreadContextManager;
+import com.griesba.executor.utils.ThreadContextManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

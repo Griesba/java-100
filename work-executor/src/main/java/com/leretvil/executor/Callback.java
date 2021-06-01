@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.griesba.executor;
 
 public interface Callback <E extends Event> {
     void onEvent(E event);
