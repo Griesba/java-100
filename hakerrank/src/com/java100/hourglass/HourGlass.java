@@ -11,9 +11,13 @@ import static java.util.stream.Collectors.toList;
 public class HourGlass {
     public static void main(String[] args) throws IOException {
 
-        InputStream is = HourGlass.class.getClassLoader().getResourceAsStream("hourglass_in.txt");
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
+        File file = new File("hourglass_in.txt");
+
+        //InputStream is = HourGlass.class.getClassLoader().getResourceAsStream("hourglass_in.txt");
+
+
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file.getPath())));
 
         List<List<Integer>> arr = new ArrayList<>();
 
