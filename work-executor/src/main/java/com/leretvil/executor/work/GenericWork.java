@@ -1,6 +1,6 @@
-package com.griesba.executor.work;
+package com.leretvil.executor.work;
 
-import com.griesba.executor.utils.ThreadContextManager;
+import com.leretvil.executor.utils.ThreadContextManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

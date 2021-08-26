@@ -1,4 +1,4 @@
-package com.griesba.executor.work;
+package com.leretvil.executor.work;
 
 public interface WorkItem extends Comparable {
     Work getResult() throws Exception;

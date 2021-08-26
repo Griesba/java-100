@@ -1,4 +1,4 @@
-package com.griesba.executor.work;
+package com.leretvil.executor.work;
 
 public interface Work extends Runnable {
     void release();

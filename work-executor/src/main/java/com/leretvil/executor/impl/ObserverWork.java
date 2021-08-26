@@ -1,8 +1,8 @@
-package com.griesba.executor.impl;
+package com.leretvil.executor.impl;
 
-import com.griesba.executor.Callback;
-import com.griesba.executor.work.GenericWork;
-import com.griesba.executor.ValueChangeEvent;
+import com.leretvil.executor.Callback;
+import com.leretvil.executor.work.GenericWork;
+import com.leretvil.executor.ValueChangeEvent;
 
 import java.io.Serializable;
 import java.time.Instant;

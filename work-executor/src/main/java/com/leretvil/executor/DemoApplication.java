@@ -1,4 +1,4 @@
-package com.griesba.executor;
+package com.leretvil.executor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

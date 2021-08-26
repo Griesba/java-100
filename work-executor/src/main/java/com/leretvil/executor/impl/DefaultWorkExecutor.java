@@ -1,9 +1,9 @@
-package com.griesba.executor.impl;
+package com.leretvil.executor.impl;
 
-import com.griesba.executor.utils.ThreadContextManager;
-import com.griesba.executor.work.GenericWork;
-import com.griesba.executor.work.WorkExecutor;
-import com.griesba.executor.work.WorkExecutorException;
+import com.leretvil.executor.utils.ThreadContextManager;
+import com.leretvil.executor.work.GenericWork;
+import com.leretvil.executor.work.WorkExecutor;
+import com.leretvil.executor.work.WorkExecutorException;
 
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;

@@ -1,9 +1,6 @@
-package com.griesba.executor;
+package com.leretvil.executor;
 
-import com.griesba.executor.Callback;
-import com.griesba.executor.ObservableException;
-import com.griesba.executor.ValueChangeEvent;
-import com.griesba.executor.impl.ObservableValue;
+import com.leretvil.executor.impl.ObservableValue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
