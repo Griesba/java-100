@@ -31,8 +31,8 @@ public class Solution {
                     }
                     if (sum < 0) {
                         count ++;
-                    }
                     
+                    }
                                        
                 }
                 
