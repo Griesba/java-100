@@ -12,12 +12,72 @@ public class MainClassReentrantLock {
     public static void main(String[] args) {
         List<String> buffer = new ArrayList<>();
         ReentrantLock reentrantLock = new ReentrantLock();
-        MyProducerReentrantLock producer = new MyProducerReentrantLock(buffer, ThreadColors.ANSI_BLUE, reentrantLock);
-        MyConsumerReentrantLock consumer1 = new MyConsumerReentrantLock(buffer, ThreadColors.ANSI_GREEN, reentrantLock);
-        MyConsumerReentrantLock consumer2 = new MyConsumerReentrantLock(buffer, ThreadColors.ANSI_CYAN, reentrantLock);
-        new Thread(producer).start();
-        new Thread(consumer1).start();
-        new Thread(consumer2).start();
+
+        String typeOfDebug = "default";
+        switch (typeOfDebug) {
+            case "default":
+                MyProducerReentrantLock producer = new MyProducerReentrantLock(buffer, ThreadColors.ANSI_BLUE, reentrantLock);
+                MyConsumerReentrantLock consumer1 = new MyConsumerReentrantLock(buffer, ThreadColors.ANSI_GREEN, reentrantLock);
+                MyConsumerReentrantLock consumer2 = new MyConsumerReentrantLock(buffer, ThreadColors.ANSI_CYAN, reentrantLock);
+                new Thread(producer).start();
+                new Thread(consumer1).start();
+                new Thread(consumer2).start();
+                break;
+            case "tryFinally":
+                System.out.println(ThreadColors.ANSI_RED + " New section start with try finally reentrant lock.");
+
+                NewMyProducerReentrantLock producerWithTryFinally = new NewMyProducerReentrantLock(buffer, reentrantLock, ThreadColors.ANSI_BLUE);
+                MyBetterConsumerReentrantLock consumer1WithTryFinally = new MyBetterConsumerReentrantLock(buffer, ThreadColors.ANSI_GREEN, reentrantLock);
+                MyBetterConsumerReentrantLock consumer2WithTryFinally = new MyBetterConsumerReentrantLock(buffer, ThreadColors.ANSI_CYAN, reentrantLock);
+                new Thread(producerWithTryFinally).start();
+                new Thread(consumer1WithTryFinally).start();
+                new Thread(consumer2WithTryFinally).start();
+                break;
+            case "tryLock":
+                System.out.println(ThreadColors.ANSI_RED + " New section with REENTRANT TRY LOCK.");
+
+                NewMyProducerReentrantLock producerWithTryFinally2 = new NewMyProducerReentrantLock(buffer, reentrantLock, ThreadColors.ANSI_BLUE);
+                MyConsumerTryLock consumer1WithTryLock = new MyConsumerTryLock(buffer, ThreadColors.ANSI_GREEN, reentrantLock);
+                MyConsumerTryLock consumer2WithTryLock = new MyConsumerTryLock(buffer, ThreadColors.ANSI_CYAN, reentrantLock);
+                new Thread(producerWithTryFinally2).start();
+                new Thread(consumer1WithTryLock).start();
+                new Thread(consumer2WithTryLock).start();
+                break;
+        }
+    }
+}
+
+class NewMyProducerReentrantLock implements Runnable {
+    private List<String> buffer;
+    private ReentrantLock bufferLock;
+    private String color;
+
+    public NewMyProducerReentrantLock(List<String> buffer, ReentrantLock bufferLock, String color) {
+        this.buffer = buffer;
+        this.bufferLock = bufferLock;
+        this.color = color;
+    }
+
+    @Override
+    public void run() {
+        String[] inputs = {"Paris", "Helsinki", "Cisino", "Lisbone", "Amsterdam"};
+
+        for (String city : inputs) {
+            System.out.println(color + "Adding " + city);
+            try {
+                bufferLock.lock();
+                buffer.add(city);
+            }finally {
+                bufferLock.unlock();
+            }
+        }
+        System.out.println(color + "Adding EOF and exiting ...");
+        try {
+            bufferLock.lock();
+            buffer.add("EOF");
+        } finally {
+            bufferLock.unlock();
+        }
     }
 }
 
@@ -51,6 +111,77 @@ class MyProducerReentrantLock implements Runnable {
         bufferLock.lock();
         buffer.add("EOF");
         bufferLock.unlock();
+    }
+}
+
+class MyBetterConsumerReentrantLock implements Runnable {
+    private List<String> buffer;
+    private String color;
+    private ReentrantLock bufferLock;
+
+    public MyBetterConsumerReentrantLock(List<String> buffer, String color, ReentrantLock bufferLock) {
+        this.buffer = buffer;
+        this.color = color;
+        this.bufferLock = bufferLock;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                bufferLock.lock();
+                if (buffer.isEmpty()) {
+                    continue;
+                }
+                if (buffer.get(0).equals("EOF")) {
+                    System.out.println(color + " Enf of file");
+                    break;
+                }
+                System.out.println(color + " consuming " + buffer.get(0));
+
+            } finally {
+                bufferLock.unlock();
+            }
+
+        }
+
+    }
+}
+
+class MyConsumerTryLock implements Runnable {
+    private List<String> buffer;
+    private String color;
+    private ReentrantLock bufferLock;
+
+    public MyConsumerTryLock(List<String> buffer, String color, ReentrantLock bufferLock) {
+        this.buffer = buffer;
+        this.color = color;
+        this.bufferLock = bufferLock;
+    }
+
+    @Override
+    public void run() {
+        int counter = 0; // count how many thread are waiting before we try to acquire the lock
+        while (true) {
+            if (bufferLock.tryLock()) {
+                try {
+                    if (buffer.isEmpty()) {
+                        continue;
+                    }
+                    System.out.println(color + " The counter before we catch the lock" + counter);
+                    counter = 0;
+                    if (buffer.get(0).equals("EOF")) {
+                        System.out.println(color + " Enf of file");
+                        break;
+                    }
+                    System.out.println(color + " consuming " + buffer.get(0));
+                } finally {
+                    bufferLock.unlock();
+                }
+            } else {
+                counter++;
+            }
+        }
     }
 }
 
