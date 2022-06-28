@@ -47,40 +47,6 @@ public class MainClassReentrantLock {
     }
 }
 
-class NewMyProducerReentrantLock implements Runnable {
-    private List<String> buffer;
-    private ReentrantLock bufferLock;
-    private String color;
-
-    public NewMyProducerReentrantLock(List<String> buffer, ReentrantLock bufferLock, String color) {
-        this.buffer = buffer;
-        this.bufferLock = bufferLock;
-        this.color = color;
-    }
-
-    @Override
-    public void run() {
-        String[] inputs = {"Paris", "Helsinki", "Cisino", "Lisbone", "Amsterdam"};
-
-        for (String city : inputs) {
-            System.out.println(color + "Adding " + city);
-            try {
-                bufferLock.lock();
-                buffer.add(city);
-            }finally {
-                bufferLock.unlock();
-            }
-        }
-        System.out.println(color + "Adding EOF and exiting ...");
-        try {
-            bufferLock.lock();
-            buffer.add("EOF");
-        } finally {
-            bufferLock.unlock();
-        }
-    }
-}
-
 class MyProducerReentrantLock implements Runnable {
     private List<String> buffer;
     private String color;
@@ -137,53 +103,16 @@ class MyBetterConsumerReentrantLock implements Runnable {
                     System.out.println(color + " Enf of file");
                     break;
                 }
-                System.out.println(color + " consuming " + buffer.get(0));
+                System.out.println(color + " consuming " + buffer.remove(0));
 
             } finally {
                 bufferLock.unlock();
             }
-
-        }
-
-    }
-}
-
-class MyConsumerTryLock implements Runnable {
-    private List<String> buffer;
-    private String color;
-    private ReentrantLock bufferLock;
-
-    public MyConsumerTryLock(List<String> buffer, String color, ReentrantLock bufferLock) {
-        this.buffer = buffer;
-        this.color = color;
-        this.bufferLock = bufferLock;
-    }
-
-    @Override
-    public void run() {
-        int counter = 0; // count how many thread are waiting before we try to acquire the lock
-        while (true) {
-            if (bufferLock.tryLock()) {
-                try {
-                    if (buffer.isEmpty()) {
-                        continue;
-                    }
-                    System.out.println(color + " The counter before we catch the lock" + counter);
-                    counter = 0;
-                    if (buffer.get(0).equals("EOF")) {
-                        System.out.println(color + " Enf of file");
-                        break;
-                    }
-                    System.out.println(color + " consuming " + buffer.get(0));
-                } finally {
-                    bufferLock.unlock();
-                }
-            } else {
-                counter++;
-            }
         }
     }
 }
+
+
 
 class MyConsumerReentrantLock implements Runnable {
 
