@@ -1,8 +1,10 @@
-package com.griesba.java100.threads.producerConsumer.blockingQueue;
+package com.griesba.java100.threads.threads.producerConsumer.blockingQueue;
+
+
+
+import com.griesba.java100.threads.threads.AppConstant;
 
 import java.util.concurrent.ArrayBlockingQueue;
-
-import static com.griesba.java100.threads.AppConstant.EOF;
 
 public class UnsafeBlockingQueueConsumer implements Runnable {
     private ArrayBlockingQueue<String> buffer;
@@ -26,7 +28,7 @@ public class UnsafeBlockingQueueConsumer implements Runnable {
                     if (buffer.isEmpty()) {
                         continue;
                     }
-                    if (buffer.peek().equals(EOF)) {
+                    if (buffer.peek().equals(AppConstant.EOF)) {
                         System.out.println(color + " Enf of file" + buffer.take());
                         break;
                     }

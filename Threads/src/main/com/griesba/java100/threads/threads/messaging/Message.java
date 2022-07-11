@@ -1,4 +1,4 @@
-package com.griesba.java100.threads.messaging;
+package com.griesba.java100.threads.threads.messaging;
 
 public class Message {
     private String message;
@@ -9,7 +9,7 @@ public class Message {
             try {
                 wait();
             } catch (InterruptedException e) {
-
+                e.printStackTrace();
             }
         }
         empty = true;
@@ -22,7 +22,7 @@ public class Message {
             try {
                 wait();
             } catch (InterruptedException e) {
-
+                e.printStackTrace();
             }
         }
         empty = false;

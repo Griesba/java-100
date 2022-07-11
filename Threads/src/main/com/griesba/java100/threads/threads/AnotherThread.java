@@ -1,6 +1,6 @@
-package com.griesba.java100.threads;
+package com.griesba.java100.threads.threads;
 
-import static com.griesba.java100.threads.ThreadColors.ANSI_BLUE;
+import static com.griesba.java100.threads.threads.ThreadColors.ANSI_BLUE;
 
 public class AnotherThread extends Thread{
 

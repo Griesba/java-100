@@ -1,4 +1,4 @@
-package com.griesba.java100.threads;
+package com.griesba.java100.threads.threads;
 
 public class ThreadColors {
     public static final String ANSI_RESET = "\u001B[0m";

@@ -1,6 +1,6 @@
-package com.griesba.java100.threads.producerConsumer.blockingQueue;
+package com.griesba.java100.threads.threads.producerConsumer.blockingQueue;
 
-import com.griesba.java100.threads.ThreadColors;
+import com.griesba.java100.threads.threads.ThreadColors;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;

@@ -1,4 +1,4 @@
-package com.griesba.java100.threads.producerConsumer;
+package com.griesba.java100.threads.threads.producerConsumer;
 
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;

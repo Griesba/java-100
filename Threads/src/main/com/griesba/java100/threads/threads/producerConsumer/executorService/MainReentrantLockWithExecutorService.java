@@ -1,8 +1,8 @@
-package com.griesba.java100.threads.producerConsumer.executorService;
+package com.griesba.java100.threads.threads.producerConsumer.executorService;
 
-import com.griesba.java100.threads.ThreadColors;
-import com.griesba.java100.threads.producerConsumer.MyConsumerTryLock;
-import com.griesba.java100.threads.producerConsumer.NewMyProducerReentrantLock;
+import com.griesba.java100.threads.threads.ThreadColors;
+import com.griesba.java100.threads.threads.producerConsumer.MyConsumerTryLock;
+import com.griesba.java100.threads.threads.producerConsumer.NewMyProducerReentrantLock;
 
 import java.util.ArrayList;
 import java.util.List;

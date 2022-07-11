@@ -1,4 +1,4 @@
-package com.griesba.java100.threads.messaging;
+package com.griesba.java100.threads.threads.messaging;
 
 public class Messaging {
     public static void main(String[] args) {

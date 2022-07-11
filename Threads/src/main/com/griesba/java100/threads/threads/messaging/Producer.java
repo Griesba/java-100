@@ -1,6 +1,4 @@
-package com.griesba.java100.threads.messaging;
-
-import com.griesba.java100.threads.messaging.Message;
+package com.griesba.java100.threads.threads.messaging;
 
 import java.util.Random;
 

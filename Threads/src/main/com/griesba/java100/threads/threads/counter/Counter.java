@@ -1,6 +1,6 @@
-package com.griesba.java100.threads.counter;
+package com.griesba.java100.threads.threads.counter;
 
-import com.griesba.java100.threads.ThreadColors;
+import com.griesba.java100.threads.threads.ThreadColors;
 
 public class Counter {
     public static void main(String[] args) {

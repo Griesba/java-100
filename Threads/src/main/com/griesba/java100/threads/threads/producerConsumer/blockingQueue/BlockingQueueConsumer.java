@@ -1,8 +1,9 @@
-package com.griesba.java100.threads.producerConsumer.blockingQueue;
+package com.griesba.java100.threads.threads.producerConsumer.blockingQueue;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
-import static com.griesba.java100.threads.AppConstant.EOF;
+import static com.griesba.java100.threads.threads.AppConstant.EOF;
+
 
 public class BlockingQueueConsumer implements Runnable {
     private ArrayBlockingQueue<String> buffer;

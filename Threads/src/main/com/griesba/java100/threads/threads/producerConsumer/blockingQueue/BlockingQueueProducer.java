@@ -1,4 +1,4 @@
-package com.griesba.java100.threads.producerConsumer.blockingQueue;
+package com.griesba.java100.threads.threads.producerConsumer.blockingQueue;
 
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;

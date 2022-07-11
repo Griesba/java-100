@@ -1,4 +1,4 @@
-package com.griesba.java100.threads;
+package com.griesba.java100.threads.threads;
 
 public class AppConstant {
 

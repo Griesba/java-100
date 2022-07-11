@@ -1,12 +1,12 @@
-package com.griesba.java100.threads.producerConsumer;
+package com.griesba.java100.threads.threads.producerConsumer;
 
-import com.griesba.java100.threads.ThreadColors;
+import com.griesba.java100.threads.threads.ThreadColors;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static com.griesba.java100.threads.producerConsumer.MainClass.EOF;
+import static com.griesba.java100.threads.threads.AppConstant.EOF;
 
 public class MainClassThreadSafe {
 
