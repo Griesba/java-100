@@ -1,7 +1,6 @@
-package com.griesba.java100.threads.threads.starvation.solution;
+package com.griesba.java100.threads.starvation.solution;
 
-import com.griesba.java100.threads.threads.ThreadColors;
-import com.griesba.java100.threads.threads.starvation.problem.Starvation;
+import com.griesba.java100.threads.ThreadColors;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -10,8 +9,8 @@ public class StarvationSolution {
      using ReentrantLock with fairness to ensure all thread can interleave and run in a fair way to avoid starvation
 
      When we have many thread using one resource and we want them to interleave, we don't want starvation, using ReentrantLock is the solution.
-But starvation use many resource, so in the case where a waiting thread is not a problem, starvation is a acceptable situation.
-For example, of many thread a reading from a queue, if one thread is starved but they other thread are reading the queue normaly, then it is not a big issue.
+But ReentrantLock use many resource, so in the case where a waiting thread is not a problem, starvation is a acceptable situation.
+For example, of many thread a reading from a queue, if one thread is starved but they other thread are reading the queue normally, then it is not a big issue.
   */
     private static ReentrantLock lock = new ReentrantLock(true);
 

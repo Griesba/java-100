@@ -1,6 +1,6 @@
-package com.griesba.java100.threads.threads.starvation.problem;
+package com.griesba.java100.threads.starvation.problem;
 
-import com.griesba.java100.threads.threads.ThreadColors;
+import com.griesba.java100.threads.ThreadColors;
 
 public class Starvation {
 
