@@ -1,4 +1,4 @@
-package com.javaalgo100.anagramme;
+package com.griesba.algo.anagramme;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 public class Word {
 
     private String word;
-    private List<String> anagrams ;
+    private List<String> anagrams;
 
     public Word() {
     }
@@ -41,7 +41,9 @@ public class Word {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        if (anagrams.isEmpty()) {return word + ": []";}
+        if (anagrams.isEmpty()) {
+            return word + ": []";
+        }
 
         stringBuilder.append(anagrams.get(0));
 
@@ -55,6 +57,6 @@ public class Word {
         }
 
 
-        return word + "[" +  stringBuilder.toString() + "]";
+        return word + "[" + stringBuilder + "]";
     }
 }

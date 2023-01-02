@@ -1,9 +1,9 @@
-package com.javaalgo100.anagramme;
+package com.griesba.algo.anagramme;
 
 
 public class QuickSort<T extends Comparable<T>> {
 
-    public void sort(T [] A, int lo, int hi) {
+    public void sort(T[] A, int lo, int hi) {
         if (lo < hi) {
             int p = partition(A, lo, hi);
             sort(A, lo, p - 1);
@@ -11,7 +11,7 @@ public class QuickSort<T extends Comparable<T>> {
         }
     }
 
-    private int partition(T [] A, int lo, int hi) {
+    private int partition(T[] A, int lo, int hi) {
         T pivot = A[hi];
         int i = lo;
         for (int j = i; j < hi; j++) {
@@ -24,7 +24,7 @@ public class QuickSort<T extends Comparable<T>> {
         return i;
     }
 
-    private void swapArray(T [] A, int lo, int hi) {
+    private void swapArray(T[] A, int lo, int hi) {
         T temp = A[lo];
         A[lo] = A[hi];
         A[hi] = temp;

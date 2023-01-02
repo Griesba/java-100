@@ -1,4 +1,4 @@
-package com.javaalgo100.anagramme;
+package com.griesba.algo.anagramme;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 public class Main {
 
     public static boolean areAnagrams(String s1, String s2) {
-        Character[] s1ACharArr = s1.toLowerCase().chars().mapToObj(c -> (char)c).toArray(Character[]::new);
-        Character[] s2ACharArr = s2.toLowerCase().chars().mapToObj(c -> (char)c).toArray(Character[]::new);
+        Character[] s1ACharArr = s1.toLowerCase().chars().mapToObj(c -> (char) c).toArray(Character[]::new);
+        Character[] s2ACharArr = s2.toLowerCase().chars().mapToObj(c -> (char) c).toArray(Character[]::new);
         //char[] s2ACharArr = s2.toLowerCase().toCharArray();
 
         //Arrays.sort(s1ACharArr);
@@ -27,11 +27,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
-	    String[] dico = {"orca", "notte", "treno","arco", "albero", "roca", "tonte", "albore"};
+        String[] dico = {"orca", "notte", "treno", "arco", "albero", "roca", "tonte", "albore"};
         List<Word> words = new ArrayList<>();
-        for (String str: dico) {
+        for (String str : dico) {
             Word word = new Word(str);
-            for (String str2: dico) {
+            for (String str2 : dico) {
                 if (!str.equals(str2) && areAnagrams(str, str2)) {
                     word.addAnagram(str2);
                 }
@@ -39,7 +39,7 @@ public class Main {
             words.add(word);
         }
 
-        for (Word word: words) {
+        for (Word word : words) {
             System.out.println(word.toString());
         }
     }
