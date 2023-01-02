@@ -4,9 +4,12 @@ package com.griesba.bank.domain;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import static com.griesba.bank.domain.Operations.DEPOSIT;
+import static com.griesba.bank.domain.Operations.WITHDRAW;
+
 public class Account {
-    private String userId;
-    private String id;
+    private final String userId;
+    private final String id;
     private BigDecimal balance;
 
     public Account(String id, String userId, BigDecimal balance) {
@@ -27,13 +30,12 @@ public class Account {
         return id;
     }
 
-    public Account deposit(BigDecimal amount) {
-        this.balance = this.balance.add(amount);
-        return this;
-    }
-
-    public Account withdraw(BigDecimal amount) {
-        this.balance = this.balance.subtract(amount);
+    public Account updateBalance(Transaction transaction) {
+        if (WITHDRAW == transaction.getOperation()) {
+            this.balance = this.balance.subtract(transaction.getAmount());
+        } else if (DEPOSIT == transaction.getOperation()) {
+            this.balance = this.balance.add(transaction.getAmount());
+        }
         return this;
     }
 
