@@ -1,11 +1,14 @@
 package com.griesba.algo.anagramme;
 
+import com.griesba.algo.anagramme.kata.Kata;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Main {
+public class Anagram {
 
     public static boolean areAnagrams(String s1, String s2) {
         Character[] s1ACharArr = s1.toLowerCase().chars().mapToObj(c -> (char) c).toArray(Character[]::new);
@@ -26,6 +29,16 @@ public class Main {
         return s1Result.equals(s2Result);
     }
 
+    public static boolean check(String s1, String s2) {
+        return sortString(s1).equals(sortString(s2));
+    }
+
+    public static String sortString(String str) {
+        List<String> strList = Arrays.asList(str.split(""));
+        Collections.sort(strList);
+        return String.join("", strList);
+    }
+
     public static void main(String[] args) {
         String[] dico = {"orca", "notte", "treno", "arco", "albero", "roca", "tonte", "albore"};
         List<Word> words = new ArrayList<>();
@@ -42,5 +55,8 @@ public class Main {
         for (Word word : words) {
             System.out.println(word.toString());
         }
+
+        Kata kata = new Kata();
+        kata.checkDictionaryAnagram(kata.loadDictionary());
     }
 }
