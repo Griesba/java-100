@@ -1,7 +1,13 @@
+import com.google.gson.Gson;
+
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -12,12 +18,11 @@ public class TemporaryFileExemple {
 
         //findFile("Box");
 
-        int count = args.length;
-        while (count > 0) {
-            System.out.println("villeret");
-            count--;
-        }
-        /*
+//        int count = args.length;
+//        while (count > 0) {
+//            System.out.println("villeret");
+//            count--;
+//        }
         try {
             final Path filePath = Files.createTempFile("myTempsFile", "txt");
 
@@ -34,7 +39,7 @@ public class TemporaryFileExemple {
 
         }catch (Exception e) {
 
-        }*/
+        }
     }
 
     public static boolean findFile(String fileName) {

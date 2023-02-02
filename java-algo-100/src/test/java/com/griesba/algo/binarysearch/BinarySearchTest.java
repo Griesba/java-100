@@ -3,7 +3,6 @@ package com.griesba.algo.binarysearch;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -19,7 +18,7 @@ public class BinarySearchTest {
 
     @Test void shouldFindLargestAs10 () {
         int[] ints = {3, 5, 3, 10};
-        int index = new BinarySearch().find(ints, 10);
+        var index = new BinarySearch().find(ints, 10);
         assertThat(index, greaterThanOrEqualTo(0));
     }
 }

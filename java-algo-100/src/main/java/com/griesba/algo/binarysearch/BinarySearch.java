@@ -14,11 +14,12 @@ public class BinarySearch {
     }
 
     public static int search(Integer[] inputs, int key, int start, int end) {
-        if(start > end) {
+        if(start >= end) {
+            if (start == end && inputs[start] == key) return start;
             return -1;
         }
-        if (start == end && inputs[start] == key) return start;
-        int middle = (end - start)/2;
+
+        int middle = (end + start)/2;
         if (inputs[middle] == key) return middle;
         if (key > inputs[middle]) return search(inputs, key, middle + 1, end);
         return search(inputs, key, start, middle - 1);

@@ -1,7 +1,6 @@
 package com.griesba.java100.threads.deadlocks;
 
 
-import com.griesba.java100.threads.threads.deadlocks.PolitePerson;
 import org.junit.jupiter.api.Test;
 
 public class PolitePersonTest {
