@@ -3,12 +3,29 @@ package leretvil.cleancode.typespecificfunctionality.clean;
 
 /*
  * what if we add new type in the enum ? risk that we forget the logic
+ * we can add function in the enum to be sure every new type will implement its functionality
  */
 class Movie {
 
 
     enum Type {
-        REGULAR, NEW_RELEASE, CHILDREN, ELDER
+        REGULAR () {
+            public int computePrice(int days) {
+               return days + 1;
+            }
+        },
+        NEW_RELEASE () {
+            public int computePrice(int days) {
+                return days * 2;
+            }
+        },
+        CHILDREN () {
+            public int computePrice(int days) {
+                return 5;
+            }
+        };
+
+        public abstract int computePrice(int days);
     }
 
     private final Type type;
@@ -18,12 +35,7 @@ class Movie {
     }
 
     public int computePrice(int days) {
-        switch (type) {
-            case REGULAR :  return days + 1;
-            case NEW_RELEASE: return days * 2;
-            case CHILDREN: return 5;
-            default: throw new IllegalArgumentException();
-        }
+        return type.computePrice(days);
     }
 }
 
