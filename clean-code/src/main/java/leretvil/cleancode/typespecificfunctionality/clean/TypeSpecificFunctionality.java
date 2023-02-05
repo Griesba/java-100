@@ -1,31 +1,19 @@
 package leretvil.cleancode.typespecificfunctionality.clean;
 
 
+import org.mockito.Mockito;
+
 /*
  * what if we add new type in the enum ? risk that we forget the logic
- * we can add function in the enum to be sure every new type will implement its functionality
+ * we can add function in the enum to be sure every new type will implement its functionality.
+ * But is it the right logic ? What if the constant or some other info need to be taken from the database ?
  */
 class Movie {
 
-
     enum Type {
-        REGULAR () {
-            public int computePrice(int days) {
-               return days + 1;
-            }
-        },
-        NEW_RELEASE () {
-            public int computePrice(int days) {
-                return days * 2;
-            }
-        },
-        CHILDREN () {
-            public int computePrice(int days) {
-                return 5;
-            }
-        };
-
-        public abstract int computePrice(int days);
+        REGULAR ,
+        NEW_RELEASE ,
+        CHILDREN
     }
 
     private final Type type;
@@ -33,18 +21,41 @@ class Movie {
     Movie(Type type) {
         this.type = type;
     }
+}
 
-    public int computePrice(int days) {
-        return type.computePrice(days);
+interface FactorRepo {
+    Double getFactor();
+}
+
+class PriceService {
+    private FactorRepo repo;
+
+    public PriceService(FactorRepo repo) {
+        this.repo = repo;
+    }
+
+    protected Integer computeNewRelease(int days) {
+        return (int) (days *  repo.getFactor());
+    }
+
+    protected Integer computeRegularPrice(int days) {
+        return (int)(days + repo.getFactor());
+    }
+
+    protected Integer computeChildrenPrice(int days) {
+        return repo.getFactor().intValue();
     }
 }
 
 public class TypeSpecificFunctionality {
 
     public static void main(String[] args) {
-        System.out.println(new Movie(Movie.Type.REGULAR).computePrice(2));
-        System.out.println(new Movie(Movie.Type.NEW_RELEASE).computePrice(2));
-        System.out.println(new Movie(Movie.Type.CHILDREN).computePrice(2));
+        FactorRepo repo = Mockito.mock(FactorRepo.class);
+        Mockito.when(repo.getFactor()).thenReturn(2d);
+        PriceService priceService = new PriceService(repo);
+        System.out.println(priceService.computeRegularPrice(2));
+        System.out.println(priceService.computeNewRelease(2));
+        System.out.println(priceService.computeChildrenPrice(2));
         System.out.println("Commit now");
     }
 }
