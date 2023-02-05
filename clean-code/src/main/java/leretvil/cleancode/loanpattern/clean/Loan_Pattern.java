@@ -1,6 +1,6 @@
 package leretvil.cleancode.loanpattern.clean;
 
-import leretvil.cleancode.model.Order;
+import leretvil.cleancode.tools.Order;
 import org.jooq.lambda.Unchecked;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

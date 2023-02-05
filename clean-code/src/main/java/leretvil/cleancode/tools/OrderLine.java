@@ -1,4 +1,4 @@
-package leretvil.cleancode.model;
+package leretvil.cleancode.tools;
 
 import lombok.Data;
 

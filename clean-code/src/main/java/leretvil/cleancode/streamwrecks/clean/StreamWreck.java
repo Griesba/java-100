@@ -1,9 +1,9 @@
 package leretvil.cleancode.streamwrecks.clean;
 
-import leretvil.cleancode.model.Order;
-import leretvil.cleancode.model.OrderLine;
-import leretvil.cleancode.model.Product;
-import leretvil.cleancode.repo.ProductRepo;
+import leretvil.cleancode.tools.Order;
+import leretvil.cleancode.tools.OrderLine;
+import leretvil.cleancode.tools.Product;
+import leretvil.cleancode.tools.ProductRepo;
 
 import java.time.LocalDate;
 import java.util.List;

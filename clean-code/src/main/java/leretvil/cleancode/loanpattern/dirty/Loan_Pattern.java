@@ -1,6 +1,6 @@
 package leretvil.cleancode.loanpattern.dirty;
 
-import leretvil.cleancode.model.Order;
+import leretvil.cleancode.tools.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.jpa.repository.JpaRepository;

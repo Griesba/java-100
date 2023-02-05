@@ -1,4 +1,4 @@
-package leretvil.cleancode.model;
+package leretvil.cleancode.tools;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
