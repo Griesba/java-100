@@ -3,6 +3,7 @@ backup_example/
 
 /target/
 !.mvn/wrapper/maven-wrapper.jar
+.gradle
 
 ### STS ###
 .apt_generated
