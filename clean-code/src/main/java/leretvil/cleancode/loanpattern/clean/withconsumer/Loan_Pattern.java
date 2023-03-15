@@ -1,4 +1,4 @@
-package leretvil.cleancode.loanpattern.clean;
+package leretvil.cleancode.loanpattern.clean.withconsumer;
 
 import leretvil.cleancode.tools.Order;
 import org.jooq.lambda.Unchecked;
@@ -52,7 +52,7 @@ class  FileExport {
 }
 
 
-class OrderExportWriter extends FileExport {
+class OrderExportWriter {
     private OrderRepo repo;
 
     protected void writeContent(Writer writer) throws IOException {
