@@ -1,4 +1,4 @@
-package com.griesba.java100.abtractfactory;
+package com.griesba.java100.domain.entities;
 
 
 import lombok.AllArgsConstructor;

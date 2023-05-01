@@ -1,12 +1,11 @@
-package com.griesba.java100.abtractfactory;
+package com.griesba.java100.domain.entities;
 
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-@SuperBuilder
 @ToString
-public class ElectricalCar extends Automotive {
-
+@SuperBuilder
+public class ElectricalScooter extends Scooter {
     public void printDetails() {
         System.out.println(super.toString());
     }

@@ -1,6 +1,9 @@
 package com.griesba.java100.abtractfactory;
 
 
+import com.griesba.java100.domain.entities.Automotive;
+import com.griesba.java100.domain.entities.Scooter;
+
 import java.util.Scanner;
 
 public class Catalogue {

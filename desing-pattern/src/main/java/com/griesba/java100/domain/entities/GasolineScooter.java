@@ -1,5 +1,6 @@
-package com.griesba.java100.abtractfactory;
+package com.griesba.java100.domain.entities;
 
+import com.griesba.java100.domain.entities.Scooter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
