@@ -1,4 +1,4 @@
-package com.griesba.java100.builder.vehiclebundle;
+package com.griesba.java100.patterns.builder.vehiclebundle;
 
 public class Seller {
 

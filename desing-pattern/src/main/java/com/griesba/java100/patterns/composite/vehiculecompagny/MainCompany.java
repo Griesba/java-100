@@ -1,4 +1,4 @@
-package com.griesba.java100.composite.vehiculecompagny;
+package com.griesba.java100.patterns.composite.vehiculecompagny;
 
 import java.util.ArrayList;
 import java.util.List;

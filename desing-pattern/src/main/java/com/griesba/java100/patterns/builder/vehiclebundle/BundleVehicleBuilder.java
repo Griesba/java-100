@@ -1,4 +1,4 @@
-package com.griesba.java100.builder.vehiclebundle;
+package com.griesba.java100.patterns.builder.vehiclebundle;
 
 public abstract class BundleVehicleBuilder {
     protected Bundle bundle;

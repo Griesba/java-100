@@ -1,4 +1,4 @@
-package com.griesba.java100.composite.graphicalshape;
+package com.griesba.java100.patterns.composite.graphicalshape;
 
 
 import java.util.ArrayList;
