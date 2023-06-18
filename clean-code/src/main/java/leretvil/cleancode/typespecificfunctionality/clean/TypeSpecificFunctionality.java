@@ -1,6 +1,7 @@
 package leretvil.cleancode.typespecificfunctionality.clean;
 
 
+import lombok.AllArgsConstructor;
 import org.mockito.Mockito;
 
 import java.util.function.BiFunction;
@@ -12,19 +13,21 @@ import java.util.function.BiFunction;
  * The solution here is to use BiFunction function attribute to assign to each type its functionality
  * this help for easy testing and more flexibility adding new type
  */
+
+
+@AllArgsConstructor
+enum Type {
+    REGULAR (PriceService::computeNewRelease),
+    NEW_RELEASE (PriceService::computeNewRelease),
+    CHILDREN (PriceService::computeChildrenPrice);
+
+
+    public final BiFunction<PriceService, Integer, Integer> priceAlgo;
+
+}
+
 class Movie {
 
-    enum Type {
-        REGULAR (PriceService::computeNewRelease),
-        NEW_RELEASE (PriceService::computeNewRelease),
-        CHILDREN (PriceService::computeChildrenPrice);
-
-        public final BiFunction<PriceService, Integer, Integer> priceAlgo;
-
-        Type(BiFunction<PriceService, Integer, Integer> priceAlgo) {
-            this.priceAlgo = priceAlgo;
-        }
-    }
 
     private final Type type;
 
@@ -56,7 +59,7 @@ class PriceService {
         return repo.getFactor().intValue();
     }
 
-    public Integer computePrice( Movie.Type type, int days) {
+    public Integer computePrice( Type type, int days) {
         return type.priceAlgo.apply(this, days);
     }
 }
@@ -67,9 +70,9 @@ public class TypeSpecificFunctionality {
         FactorRepo repo = Mockito.mock(FactorRepo.class);
         Mockito.when(repo.getFactor()).thenReturn(2d);
         PriceService priceService = new PriceService(repo);
-        System.out.println(priceService.computePrice(Movie.Type.REGULAR, 2));
-        System.out.println(priceService.computePrice(Movie.Type.NEW_RELEASE, 2));
-        System.out.println(priceService.computePrice(Movie.Type.CHILDREN, 2));
+        System.out.println(priceService.computePrice(Type.REGULAR, 2));
+        System.out.println(priceService.computePrice(Type.NEW_RELEASE, 2));
+        System.out.println(priceService.computePrice(Type.CHILDREN, 2));
         System.out.println("Commit now");
     }
 }
