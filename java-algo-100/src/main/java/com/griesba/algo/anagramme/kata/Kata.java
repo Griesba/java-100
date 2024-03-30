@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 public class Kata {
 
-    
     public List<String> loadDictionary() {
         List<String> dictionary = new ArrayList<>();
         String location = "src/main/resources/anagram-dico.txt";

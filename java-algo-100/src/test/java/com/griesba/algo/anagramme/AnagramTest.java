@@ -7,7 +7,6 @@ import java.util.Arrays;
 
 class AnagramTest {
 
-
     @Test
     void shouldTestTwoWordAnagram() {
         Kata kata = new Kata();
