@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -88,5 +90,18 @@ public class ReadWriteFileTest {
 
         Files.delete(path);
         assertThat(Files.exists(path)).isFalse();
+    }
+
+    @Test
+    void shouldReadFileLength() throws IOException {
+        File file = new File("testFile.txt");
+
+        try (FileOutputStream fileOutputStream = new FileOutputStream(file)) {
+            fileOutputStream.write("Hello world !".getBytes());
+        }
+
+        assertThat(file.length()).isEqualTo(13);
+
+        assertThat(file.delete()).isTrue();
     }
 }

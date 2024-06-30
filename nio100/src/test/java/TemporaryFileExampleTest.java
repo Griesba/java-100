@@ -1,8 +1,8 @@
 import interfaceFonctionnel.ContractParser;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 
-public class TemporaryFileExempleTest {
+public class TemporaryFileExampleTest {
 
     @Test
     public void test () {
